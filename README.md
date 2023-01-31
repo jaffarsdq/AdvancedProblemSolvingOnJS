@@ -1,2 +1,1 @@
 # AdvancedProblemSolvingOnJS
-# AdvancedProblemSolvingOnJS
