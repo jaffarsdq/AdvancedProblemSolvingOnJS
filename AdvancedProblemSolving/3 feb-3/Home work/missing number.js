@@ -1,4 +1,4 @@
-let nums = [1,0,3];
+let nums = [1,0,2];
 function missingNumber(nums){
     let result = nums.length;
     for (let i = 0; i < nums.length; i++) {
