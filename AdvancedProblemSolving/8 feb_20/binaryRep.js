@@ -4,4 +4,3 @@ function f (x, i) {
 }
  
 console.log(f(5, 1));
-
