@@ -16,7 +16,7 @@ function small(nums){
 
 console.log(small(nums));
 
-//Merge Sort
+//Binary Search
 function tiny(nums) {
     if(nums[0] == !0) return 0;
     let low = 0 , high = nums.length-1;
