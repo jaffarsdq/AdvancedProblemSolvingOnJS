@@ -62,6 +62,8 @@ function display (head) {
 }
 
 let head = null;
+// You can only add or delete a node from head because it's Singly linked list//
+// that's why we accessing node from head//
 
 head = createAtHead (head, 0);
 head = createAtHead (head, 10);
