@@ -32,6 +32,43 @@ function createAtTail (head, data) {
     return head
 }
 
+function createAtIndex (head, data, i) {
+    let temp = head;
+    if (temp == null) {
+        return removeAtHead(head, data);
+    }
+    let count = 0;
+    while (count < i-1) {
+        temp = temp.next;
+        count += 1;
+    }
+    let prev = temp.next;
+    let newNode = Node (data);
+    temp.next = newNode;
+    newNode.next = prev;
+    return head
+}
+
+function removeAtIndex (head, i) {
+    let temp = head;
+    if (temp == null) {
+        return head;
+    }
+    if (temp.next == null) {
+        return null;
+    }
+    let count = 0;
+    while (count < i-1) {
+        temp = temp.next;
+        count += 1;
+    }
+    let remove = temp.next;
+    let nextofremove = temp.next.next;
+    temp.next = nextofremove;
+    remove.next = null;
+    return head;
+}
+
 function removeAtTail (head) {
     if (head == null) {
         return null;
@@ -70,9 +107,7 @@ head = createAtHead (head, 10);
 head = createAtHead (head, 20);
 head = createAtHead (head, 30);
 head = createAtHead (head, 40);
-head = createAtTail (head, -1);
-head = removeAtHead (head);
-head = removeAtTail (head);
-head = createAtTail (head, -2);
+head = createAtIndex (head, 99, 2);
+head = removeAtIndex (head, 2);
 
 display (head);
