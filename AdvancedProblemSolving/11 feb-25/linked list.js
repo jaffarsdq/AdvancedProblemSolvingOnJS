@@ -35,7 +35,7 @@ function createAtTail (head, data) {
 function createAtIndex (head, data, i) {
     let temp = head;
     if (temp == null) {
-        return removeAtHead(head, data);
+        return createAtHead(head, data);
     }
     let count = 0;
     while (count < i-1) {
@@ -58,14 +58,19 @@ function removeAtIndex (head, i) {
         return null;
     }
     let count = 0;
-    while (count < i-1) {
+    while(temp.next != null && count < i-1) {
         temp = temp.next;
         count += 1;
     }
-    let remove = temp.next;
-    let nextofremove = temp.next.next;
-    temp.next = nextofremove;
-    remove.next = null;
+
+    if(temp.next == null && count <= i-1) { // i is greater than length of ll
+        return head;
+    }
+    // temp points at the i-1th node
+    let nodeToBeRemoved = temp.next;
+    let nextOfRemoved = temp.next.next;
+    temp.next = nextOfRemoved;
+    nodeToBeRemoved.next = null;
     return head;
 }
 
@@ -83,6 +88,23 @@ function removeAtTail (head) {
     temp.next = null;
     return head
 }
+
+function midNode(head) {
+    /**
+     * https://leetcode.com/problems/middle-of-the-linked-list/
+     * Time: O(N)
+     * Space: O(1)
+     */
+    if(head == null) return null;
+    let slow = head;
+    let fast = head;
+    while(fast.next != null && fast.next.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    if(fast.next == null) return slow
+    else return slow.next;
+};
 
 function display (head) {
     let temp = head;
