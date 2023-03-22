@@ -1,4 +1,4 @@
-function nextGreater(arr) {
+function nextSmaller(arr) {
     let n = arr.length;
     let st = [];
     let output = [];
@@ -18,4 +18,4 @@ function nextGreater(arr) {
 }
 
 let arr = [3,5,10,1,2,9];
-console.log(nextGreater(arr));
+console.log(nextSmaller(arr));

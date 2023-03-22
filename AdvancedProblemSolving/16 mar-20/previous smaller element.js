@@ -1,4 +1,4 @@
-function nextGreater(arr) {
+function prevSmaller(arr) {
     let n = arr.length;
     arr.reverse();
     let st = [];
@@ -19,5 +19,5 @@ function nextGreater(arr) {
     return output;
 }
 
-let arr = [3,5,10,1,2,9];
-console.log(nextGreater(arr));
+let arr = [100,80,60,70,60,75,85];
+console.log(prevSmaller(arr));
