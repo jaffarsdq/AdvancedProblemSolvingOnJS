@@ -12,7 +12,7 @@ function nextGreater(arr) {
     }
     while(st.length > 0) {
         ouput[st[st.length - 1]] = - 1;
-        st.pop();                                                                                         
+        st.pop();
     }
     return ouput;
 }
