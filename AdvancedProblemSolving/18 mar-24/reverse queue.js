@@ -9,6 +9,7 @@ class queue {
     constructor() {
         this.head = null;
         this.tail = null;
+        this.st = [];
     }
 
     enqueue(x) {
@@ -43,14 +44,30 @@ class queue {
         if(this.head == null) return;
         return this.tail.data;
     }
+    
+    empty() {
+        return (this.head == null && this.tail == null);
+    }
+
+    reverseQueue() {
+        while(!this.head == null && this.tail == null) { 
+            this.st.push(thsi.queue.dequeue());
+        }
+        while(this.st.length != 0) {
+            this.queue.enqueue(this.st.pop());
+        }
+    }
 }
 
-let q = new queue();
+
+
+
+
+let q = new queue;
 q.enqueue(1);
 q.enqueue(2);
 q.enqueue(3);
-console.log(q.getFront(), q.getBack());
-q.getBack();
-// q.dequeue();
-console.log(q.getFront(), q.getBack());
-console.log(q.dequeue());
+q.enqueue(4);
+console.log(q.getFront());
+q.reverseQueue();
+console.log(q.getFront());

@@ -24,14 +24,12 @@ class queue {
 
     dequeue() {
         if(this.head == null) return;
-        let deq = this.head.data;
         let nextNode = this.head.next;
         this.head.next = null;
         this.head = nextNode;
         if(this.head == null) {
             this.tail = null;
         } 
-        return deq;
     }
 
     getFront() {
@@ -43,14 +41,39 @@ class queue {
         if(this.head == null) return;
         return this.tail.data;
     }
+    
+    empty() {
+        return (this.head == null && this.tail == null);
+    }
 }
 
-let q = new queue();
-q.enqueue(1);
-q.enqueue(2);
-q.enqueue(3);
-console.log(q.getFront(), q.getBack());
-q.getBack();
-// q.dequeue();
-console.log(q.getFront(), q.getBack());
-console.log(q.dequeue());
+function nonRepeating(A) {
+		let b = "";
+		let q = new queue;
+		let freqMap = {};
+		for(let i = 0; i < A.length; i++) {
+			let currChar = A[i];
+			if(freqMap[currChar]) {
+				freqMap[currChar]++;
+			} else {
+				freqMap[currChar] = 1;
+			}
+            if (freqMap[currChar] == 1) q.enqueue(currChar);
+			let front = q.getFront();
+            
+			while(!q.empty() && freqMap[front] > 1) {
+				q.dequeue();
+				front = q.getFront();
+			}
+			if(!q.empty()) {
+				b += front;
+			} else {
+				b += '#';
+			}
+		}
+		return b;
+};
+
+
+let A = "ababcdcd"
+console.log(nonRepeating(A));
