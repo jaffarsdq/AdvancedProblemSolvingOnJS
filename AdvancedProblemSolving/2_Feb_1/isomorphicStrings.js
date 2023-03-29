@@ -2,6 +2,7 @@
 // Output: true
 
 var isIsomorphic = function(s,t) {
+    if(s.length != t.length) return false;
     let m1 = {} , m2 = {};
     for(let i=0; i< s.length ; i++){
         let charS = s[i];
